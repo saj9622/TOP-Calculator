@@ -1,0 +1,179 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #212121;
+}
+
+/* Body */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    color: #AFAFAF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* General Calculator Container */
+.calculator {
+    width: 100%;
+    max-width: 310px; /* Ensures perfect alignment with buttons */
+    padding: 10px;
+    border-radius: 15px 15px 25px 25px;
+    background-color: #303030;
+}
+
+/* Highlight operators in the display */
+.operator-color {
+    color: #2185D3; /* Bright red or any color you prefer */
+    background-color: transparent;
+}
+
+/* Display Screen */
+#screen {
+    width: 100%;
+    height: 120px;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    text-align: right;
+    padding: 5px;
+    border: 1px solid #454545;
+    overflow: hidden;
+    color: #fff;
+    background-color: #171717;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+/* Make display scrollable vertically */
+#display {
+    width: 100%;
+    max-height: 100px;
+    overflow-y: auto;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 2rem;
+    padding-right: 5px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    user-select: text;
+    line-height: 1.2;
+    word-break: break-word;
+}
+
+/* Scrollbar Styling */
+#display::-webkit-scrollbar {
+    width:10px;
+    background: transparent;
+    border-radius: 10px;
+}
+
+#display::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+#display::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 10px;
+}
+
+/* Highlight Selection */
+#display::selection {
+    background-color: #424242;
+    color: white;
+}
+
+/* Result Display */
+#result {
+    font-size: 1.5rem;
+    color: #8B8B8B;
+    padding: 5px;
+}
+
+
+#display, #result {
+    background-color: transparent;
+}
+
+/* Buttons Container */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    width: 100%; /* Ensures perfect alignment with display */
+    background-color: transparent;
+}
+
+/* Button Styling */
+button {
+    width: 100%;                    /* Full grid cell width */
+    height: 70px;                    /* Fixed height to avoid fractional pixels */
+    background-color: #303030;
+    color: #B4B4B4;
+    border: 1px solid #454545;
+    border-radius: 50%;              /* Circular shape */
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Special Buttons */
+.clear, .backspace, .percentage {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+#equals, .operator {
+    background-color: #2A4A6D;
+    color: #48AAFF;
+    border: none;
+}
+
+.clear:hover, .backspace:hover, .percentage:hover {
+    background-color: #C1C1C1;
+}
+
+.digit:hover, .decimal:hover {
+    background-color: #424242;
+}
+
+
+#equals:hover, .operator:hover {
+    background-color: #1A4068;
+}
+/* Zero Button (Double Width) */
+.zero {
+    grid-column: span 2;              /* Double width */
+    height: 70px;                      /* Match other buttons */
+    border-radius: 50px;
+}
+
+/* Responsive on Smaller Screens */
+@media (max-width: 400px) {
+    .calculator {
+        width: 95%;
+    }
+
+    #display {
+        height: 100px;
+        font-size: 2rem;
+    }
+}
