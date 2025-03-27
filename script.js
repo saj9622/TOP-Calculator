@@ -140,10 +140,10 @@ document.addEventListener('keydown', (e) => {
 
     const { key } = e;
 
-    // Disable function keys (F1 to F12)
+    // Allow function keys but prevent them from affecting the display
     if (key.startsWith('F') && !isNaN(key.substring(1))) {
-        e.preventDefault(); // Stops the default action
-        return; // Exits the function
+        e.stopPropagation(); // Prevent it from bubbling up (optional)
+        return; // Exits the function but doesn't block the default action
     }
 
     if (/\d/.test(key)) handleDigitInput(key);
@@ -155,10 +155,4 @@ document.addEventListener('keydown', (e) => {
         const operator = key === '*' ? '×' : key === '/' ? '÷' : key;
         handleOperatorInput(operator);
     }
-});
-
-// Copy current expression to clipboard
-display.addEventListener('copy', (e) => {
-    e.clipboardData.setData('text/plain', currentExpression);
-    e.preventDefault();
 });
